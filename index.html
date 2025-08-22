@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TopSoul.Games - Студия инди-игр</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>TopSoul.Games</h1>
+                <span>Вкладываем душу в каждый пиксель</span>
+            </div>
+            <nav class="nav">
+                <a href="#about">О нас</a>
+                <a href="#games">Игры</a>
+                <a href="#blog">Блог</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="container">
+            <h2>Создаём игры с душой</h2>
+            <p>Небольшая инди-студия из России, specializing in atmospheric games with deep storytelling</p>
+            <a href="#games" class="btn">Наши проекты</a>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Кто мы?</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Мы — маленькая, но увлечённая команда энтузиастов, которые верят, что настоящие игры создаются страстью, а не бюджетами.</p>
+                    <p>Наш фокус — это атмосфера, ностальгия и внимание к деталям, которые заставляют игроков возвращаться снова и снова.</p>
+                    <div class="team-stats">
+                        <div class="stat">
+                            <span class="number">3</span>
+                            <span class="label">Члена команды</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">1</span>
+                            <span class="label">Игра в разработке</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">∞</span>
+                            <span class="label">Чашек кофе</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/studio-placeholder.jpg" alt="Наша студия" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Игры -->
+    <section id="games" class="games">
+        <div class="container">
+            <h2>Наши игры</h2>
+            <div class="game-card">
+                <div class="game-info">
+                    <h3>RPM2004</h3>
+                    <span class="game-tag">В разработке</span>
+                    <p>Ностальгическая игра про сборку машины и жизнь на Кубани в 2004-м году. Вдохновлено My Summer Car, но с уникальной российской атмосферой.</p>
+                    <div class="game-features">
+                        <span>• Свобода действий</span>
+                        <span>• Детализированный автопарк</span>
+                        <span>• Аутентичная атмосфера 2000-х</span>
+                    </div>
+                    <div class="game-buttons">
+                        <a href="https://topsoulgames.itch.io/rpm2004" class="btn primary">Скачать на Itch.io</a>
+                        <a href="#rpm2004" class="btn secondary">Узнать больше</a>
+                    </div>
+                </div>
+                <div class="game-media">
+                    <img src="images/rpm2004/screenshot1.jpg" alt="RPM2004 Скриншот" onerror="this.src='images/placeholder.jpg'">
+                    <div class="gallery">
+                        <img src="images/rpm2004/screenshot2.jpg" alt="Скриншот 2" onerror="this.style.display='none'">
+                        <img src="images/rpm2004/screenshot3.jpg" alt="Скриншот 3" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блог -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2>Блог разработки</h2>
+            <div class="blog-posts">
+                <article class="post-card">
+                    <h3>Начало пути</h3>
+                    <span class="post-date">15 Мая 2024</span>
+                    <p>Первые прототипы и идеи, которые легли в основу RPM2004. Как мы пришли к концепции игры про Кубань...</p>
+                    <a href="#" class="read-more">Читать далее →</a>
+                </article>
+                <article class="post-card">
+                    <h3>Особенности автомобилей</h3>
+                    <span class="post-date">28 Мая 2024</span>
+                    <p>Как мы recreating атмосферу отечественного автопрома и тюнинга 2000-х годов в Unity...</p>
+                    <a href="#" class="read-more">Читать далее →</a>
+                </article>
+                <article class="post-card">
+                    <h3>Саундтрек и звуки</h3>
+                    <span class="post-date">10 Июня 2024</span>
+                    <p>Подбор музыки и создание звуковых эффектов, которые погружают в атмосферу юга России 2004 года...</p>
+                    <a href="#" class="read-more">Читать далее →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Связаться с нами</h2>
+            <p>Есть вопросы, предложения или хотите сотрудничать? Пишите!</p>
+            <div class="contact-info">
+                <a href="mailto:hello@topsoul.games" class="contact-link">
+                    ✉️ hello@topsoul.games
+                </a>
+                <div class="social-links">
+                    <a href="#" class="social-link">VK</a>
+                    <a href="#" class="social-link">Telegram</a>
+                    <a href="#" class="social-link">YouTube</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 TopSoul.Games. Все права защищены.</p>
+            <p>Made with ♥ for the game dev community</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
