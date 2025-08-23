@@ -351,3 +351,67 @@ h2 {
         grid-template-columns: 1fr;
     }
 }
+
+/* Стили для статуса разработки */
+.coming-soon {
+    position: relative;
+    opacity: 0.8;
+    filter: grayscale(0.3);
+    cursor: not-allowed;
+}
+
+.coming-soon:hover {
+    transform: none !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid #666 !important;
+}
+
+.status-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.development-info {
+    background: rgba(255, 107, 53, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    border-left: 4px solid #ff6b35;
+}
+
+.development-info p {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.follow-development {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+}
+
+.follow-development .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+
