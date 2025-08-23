@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPM2004 - TopSoul Games</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #ff6b35;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .logo span {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: #ff6b35;
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        /* Главный баннер */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 0 4rem;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%230a0a0a" width="1200" height="800"/><circle fill="%23ff6b35" opacity="0.1" cx="200" cy="200" r="100"/><circle fill="%23f7931e" opacity="0.1" cx="1000" cy="600" r="150"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #ff6b35;
+        }
+
+        /* Особенности */
+        .features {
+            padding: 5rem 0;
+            background: #0a0a0a;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Скриншоты */
+        .screenshots {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Системные требования */
+        .requirements {
+            padding: 5rem 0;
+            background: #0a0a0a;
+        }
+
+        .specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .spec-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Загрузка */
+        .download {
+            padding: 5rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .download-options {
+            margin: 2rem 0;
+        }
+
+        .platform-btn {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            margin: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+            min-width: 150px;
+            backdrop-filter: blur(10px);
+        }
+
+        .platform-btn:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 107, 53, 0.2);
+            border: 2px solid #ff6b35;
+        }
+
+        .platform-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Футер */
+        footer {
+            background: #0a0a0a;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 2px solid #ff6b35;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            padding: 0.5rem 1rem;
+            border: 2px solid #ff6b35;
+            color: #ff6b35;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #ff6b35;
+            color: white;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features-grid,
+            .gallery,
+            .specs {
+                grid-template-columns: 1fr;
+            }
+
+            .platform-btn {
+                min-width: 120px;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Модальное окно для скриншотов */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>RPM2004</h1>
+                <span>by TopSoul.Games</span>
+            </div>
+            <nav>
+                <a href="#about">Об игре</a>
+                <a href="#features">Особенности</a>
+                <a href="#screenshots">Скриншоты</a>
+                <a href="#requirements">Системные требования</a>
+                <a href="#download">Скачать</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero">
+        <div class="container hero-content fade-in">
+            <h2>RPM2004</h2>
+            <p>Ностальгическая игра про сборку машины и жизнь на Кубани в 2004-м году. Вдохновлено My Summer Car.</p>
+            <div class="hero-buttons">
+                <a href="#download" class="btn">Скачать сейчас</a>
+                <a href="#features" class="btn btn-secondary">Узнать больше</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Об игре -->
+    <section id="about" class="features">
+        <div class="container">
+            <h2 class="section-title">Об игре</h2>
+            <div class="feature-card">
+                <p>2004 год, Краснодарский край. Вы находите старую "девятку" в гараже своего деда и решаете восстановить её до былой славы. 
+                Вас ждёт настоящая жизнь на юге России: от поездок на рынок за запчастями до ночных гонок по проселочным дорогам.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Особенности -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Особенности</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Детальная сборка</h3>
+                    <p>Реалистичная сборка двигателя и всех систем автомобиля с мельчайшими деталями</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🌻</div>
+                    <h3>Атмосфера Кубани</h3>
+                    <p>Уникальная атмосфера юга России 2000-х годов: поля, станицы, рынки и многое другое</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🚗</div>
+                    <h3>Автопарк СССР</h3>
+                    <p>Классические автомобили ВАЗ, ГАЗ, УАЗ и другие легенды советского автопрома</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Саундтрек эпохи</h3>
+                    <p>Музыка 2000-х годов и кассетное радио с настоящими хитами того времени</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Скриншоты -->
+    <section id="screenshots" class="screenshots">
+        <div class="container">
+            <h2 class="section-title">Скриншоты</h2>
+            <div class="gallery">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzMzIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NjYiPua1i+ivleWPr+iDveaMiemSrjwvdGV4dD48L3N2Zz4=" alt="Скриншот игры 1">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNDQ0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NjYiPua1i+ivleWPr+iDveaMiemSrjwvdGV4dD48L3N2Zz4=" alt="Скриншот игры 2">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNTU1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NjYiPua1i+ivleWPr+iDveaMiemSrjwvdGV4dD48L3N2Zz4=" alt="Скриншот игры 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- Системные требования -->
+    <section id="requirements" class="requirements">
+        <div class="container">
+            <h2 class="section-title">Системные требования</h2>
+            <div class="specs">
+                <div class="spec-card fade-in">
+                    <h3>Минимальные</h3>
+                    <ul>
+                        <li><strong>ОС:</strong> Windows 10</li>
+                        <li><strong>Процессор:</strong> Intel Core i5-4460</li>
+                        <li><strong>Память:</strong> 8 GB RAM</li>
+                        <li><strong>Видеокарта:</strong> NVIDIA GTX 760</li>
+                        <li><strong>Место:</strong> 5 GB HDD</li>
+                    </ul>
+                </div>
+                <div class="spec-card fade-in">
+                    <h3>Рекомендуемые</h3>
+                    <ul>
+                        <li><strong>ОС:</strong> Windows 11</li>
+                        <li><strong>Процессор:</strong> Intel Core i7-7700K</li>
+                        <li><strong>Память:</strong> 16 GB RAM</li>
+                        <li><strong>Видеокарта:</strong> NVIDIA GTX 1060</li>
+                        <li><strong>Место:</strong> 5 GB SSD</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Загрузка -->
+    <section id="download" class="download">
+        <div class="container">
+            <h2 class="section-title">Скачать игру</h2>
+            <p>Выберите версию для вашей операционной системы</p>
+            
+            <div class="download-options">
+                <a href="#" class="platform-btn">
+                    <span class="platform-icon">🪟</span>
+                    <span>Windows</span>
+                    <small>2.1 GB</small>
+                </a>
+                <a href="#" class="platform-btn">
+                    <span class="platform-icon">🍎</span>
+                    <span>macOS</span>
+                    <small>2.3 GB</small>
+                </a>
+                <a href="#" class="platform-btn">
+                    <span class="platform-icon">🐧</span>
+                    <span>Linux</span>
+                    <small>2.0 GB</small>
+                </a>
+            </div>
+
+            <p>Или скачайте на других платформах:</p>
+            <a href="https://topsoulgames.itch.io/rpm2004" class="btn">Itch.io</a>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <h1>TopSoul.Games</h1>
+                <span>Вкладываем душу в каждый пиксель</span>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-link">VK</a>
+                <a href="#" class="social-link">Telegram</a>
+                <a href="#" class="social-link">YouTube</a>
+                <a href="mailto:hello@topsoul.games" class="social-link">Email</a>
+            </div>
+
+            <p>© 2024 TopSoul Games. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Плавная прокрутка
+        document.querySelectorAll('nav a, .btn').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Анимация появления при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.feature-card, .spec-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Модальное окно для скриншотов
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.close');
+
+        document.querySelectorAll('.gallery img').forEach(img => {
+            img.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImg.src = img.src;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Год в футере
+        document.querySelector('footer p').innerHTML = `© ${new Date().getFullYear()} TopSoul Games. Все права защищены.`;
+    </script>
+</body>
+</html>
